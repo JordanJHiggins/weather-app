@@ -10,5 +10,11 @@ export default function renderLocationInput() {
 
   const inputCard = createElement('div', 'input-card');
 
+  const locationInput = createElement('input', 'location-input');
+  locationInput.type = 'text';
+
+  const locationSubmit = createElement('button', 'location-submit');
+  locationSubmit.innerText = 'Search';
+  inputCard.append(locationInput, locationSubmit);
   rootElement.appendChild(inputCard);
 }
