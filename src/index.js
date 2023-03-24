@@ -1,5 +1,5 @@
 import { getCoords, getWeatherData } from './openWeather';
-import renderLocationInput from './view';
+import { renderLocationInput, renderWeatherCard } from './view';
 import './style.css';
 
 function search() {
@@ -9,14 +9,24 @@ function search() {
     if (e.target.classList.contains('location-submit')) {
       const userLocation = document.querySelector('.location-input');
 
-      const userCoordinates = await getCoords(userLocation.value);
+      if (userLocation.value !== '') {
+        try {
+          const userCoordinates = await getCoords(userLocation.value);
 
-      const currentWeather = getWeatherData(
-        userCoordinates.latitude,
-        userCoordinates.longitude
-      );
+          const currentWeatherData = await getWeatherData(
+            userCoordinates.latitude,
+            userCoordinates.longitude
+          );
 
-      console.log(currentWeather);
+          renderWeatherCard(currentWeatherData);
+        } catch (err) {
+          alert(
+            `Cannot find location: ${userLocation.value}. Please enter a new location.`
+          );
+        }
+      } else {
+        alert('City name cannot be empty.');
+      }
     }
   });
 }
