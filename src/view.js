@@ -5,14 +5,24 @@ function createElement(tag, className) {
   return element;
 }
 
-function updateView(weatherCard) {
-  const rootEl = document.getElementById('root');
+function clearView(view) {
+  if (view.contains(document.querySelector('.weather-card'))) {
+    document.querySelector('.weather-card').remove();
+  }
+}
 
-  rootEl.appendChild(weatherCard);
+function updateView(card) {
+  const weatherContainer = document.querySelector('.weather-container');
+
+  clearView(weatherContainer);
+
+  weatherContainer.append(card);
 }
 
 export function renderLocationInput() {
   const rootElement = document.getElementById('root');
+
+  const weatherContainer = createElement('div', 'weather-container');
 
   const inputCard = createElement('div', 'input-card');
 
@@ -23,7 +33,7 @@ export function renderLocationInput() {
   locationSubmit.innerText = 'Search';
 
   inputCard.append(locationInput, locationSubmit);
-  rootElement.appendChild(inputCard);
+  rootElement.append(inputCard, weatherContainer);
 }
 
 export function renderWeatherCard(currentWeather) {
