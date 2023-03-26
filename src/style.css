@@ -13,17 +13,94 @@ body {
   width: 100%;
 }
 body {
-  background-color: #0f172a;
+  background-image: url(./assets/weather-back.jpg);
+  background-size: cover;
+}
+
+/* Header */
+.header {
+  font-size: 2.5rem;
+  color: #f8fafc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
+  width: 100vw;
+}
+/* Main */
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+  width: 100vw;
 }
 
 #root {
   height: 100vh;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-rows: 1fr 6fr;
+  grid-template-columns: 1fr;
+  justify-items: center;
 }
 
+/* Location Input */
 .input-card {
-  background-color: #f8fafc;
-  width: 20%;
+  background-color: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
+  width: 40%;
   height: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  grid-area: 2 / 1 / 2 / 1;
+  border-radius: 10px;
+}
+
+.location-input {
+  width: 50%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border-style: none;
+}
+
+.location-submit {
+  width: 30%;
+  background-color: #e2e8f0;
+  border-style: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+/* Weather Card */
+.weather-container {
+  display: flex;
+}
+.weather-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: #f1f5f9;
+  background-color: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
+  height: 30vh;
+  width: 30vw;
+  border-radius: 10px;
+  grid-area: 2 / 1 / 2 / 1;
+}
+
+.location-name {
+  font-size: 2rem;
+  margin: 1rem 0rem 1rem 0rem;
+}
+
+.temp,
+.feels-like,
+.humidity {
+  font-size: 1.5rem;
 }

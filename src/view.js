@@ -18,9 +18,8 @@ function updateView(card) {
 
   weatherContainer.append(card);
 }
-
 export function renderLocationInput() {
-  const rootElement = document.getElementById('root');
+  const main = document.querySelector('.main');
 
   const weatherContainer = createElement('div', 'weather-container');
 
@@ -33,7 +32,20 @@ export function renderLocationInput() {
   locationSubmit.innerText = 'Search';
 
   inputCard.append(locationInput, locationSubmit);
-  rootElement.append(inputCard, weatherContainer);
+  main.append(inputCard, weatherContainer);
+}
+
+export function renderHome() {
+  const rootElement = document.getElementById('root');
+
+  const header = createElement('div', 'header');
+  header.innerText = 'Weather App';
+
+  const main = createElement('div', 'main');
+
+  rootElement.append(header, main);
+
+  renderLocationInput();
 }
 
 export function renderWeatherCard(currentWeather) {
@@ -43,13 +55,13 @@ export function renderWeatherCard(currentWeather) {
   locationName.innerText = currentWeather.name;
 
   const temp = createElement('p', 'temp');
-  temp.innerText = currentWeather.main.temp;
+  temp.innerText = `${currentWeather.main.temp}°C`;
 
   const feelsLike = createElement('p', 'feels-like');
-  feelsLike.innerText = currentWeather.main.feels_like;
+  feelsLike.innerText = `Feels like: ${currentWeather.main.feels_like}°C`;
 
   const humidity = createElement('p', 'humidity');
-  humidity.innerText = currentWeather.main.humidity;
+  humidity.innerText = `Humidity: ${currentWeather.main.humidity}%`;
 
   weatherCard.append(locationName, temp, feelsLike, humidity);
 

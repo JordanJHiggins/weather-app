@@ -1,5 +1,5 @@
 import { getCoords, getWeatherData } from './openWeather';
-import { renderLocationInput, renderWeatherCard } from './view';
+import { renderHome, renderLocationInput, renderWeatherCard } from './view';
 import './style.css';
 
 function search() {
@@ -31,5 +31,5 @@ function search() {
   });
 }
 
-renderLocationInput();
+renderHome();
 search();

@@ -17,14 +17,8 @@ module.exports = {
     open: true,
     hot: true,
     compress: true,
-    historyApiFallback: true,
   },
   devtool: 'inline-source-map',
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Output Management',
-    }),
-  ],
   module: {
     rules: [
       {
@@ -33,4 +27,11 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Weather App',
+      filename: 'index.html',
+      template: 'src/template.html',
+    }),
+  ],
 };
