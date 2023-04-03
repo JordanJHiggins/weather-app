@@ -13,10 +13,13 @@ body {
   width: 100%;
 }
 body {
-  background-image: url(./assets/weather-back.jpg);
-  background-size: cover;
+  background: rgb(156, 163, 175);
+  background: linear-gradient(
+    180deg,
+    rgba(156, 163, 175, 1) 0%,
+    rgba(15, 23, 42, 1) 100%
+  );
 }
-
 /* Header */
 .header {
   font-size: 2.5rem;
@@ -24,17 +27,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(10px);
   width: 100vw;
 }
 /* Main */
 .main {
+  background-color: rgba(75, 85, 99, 0.4);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5rem;
-  width: 100vw;
+  margin-top: 2rem;
+  border-radius: 10px;
+  gap: 3rem;
+  width: 75%;
+  height: 80%;
 }
 
 #root {
@@ -47,8 +53,6 @@ body {
 
 /* Location Input */
 .input-card {
-  background-color: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(10px);
   width: 40%;
   height: 20%;
   display: flex;
@@ -86,8 +90,7 @@ body {
   align-items: center;
   gap: 1rem;
   color: #f1f5f9;
-  background-color: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(10px);
+  background-color: #0369a1;
   height: 30vh;
   width: 30vw;
   border-radius: 10px;
